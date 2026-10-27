@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistérios S/IA - Análise de Desinformação</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navegação com fundo turquesa fixado -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="#">
+                <span class="fs-4">Mistérios S/IA</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-6">
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="#analisador">Analisador</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#fakenews">Fake News</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#deepfake">Deepfakes</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#verificacao">Verificação</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 bg-hero border-bottom border-secondary border-opacity-25">
+        <div class="container py-4 text-center">
+            <span class="badge badge-accent mb-3 uppercase tracking-wider fs-7">Plataforma de Investigação
+                Digital</span>
+            <h1 class="display-5 fw-bold mb-3 --bs-emphasis-color">Desvelando a Desinformação e conteúdos com IA</h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 680px;">
+                Ferramenta de análise e guia prático para identificar padrões apelativos, falsificações em áudio/vídeo e
+                narrativas manipuladas.
+            </p>
+        </div>
+    </header>
+
+    <section id="analisador" class="py-5 border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="panel p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="indicator-dot me-2"></span>
+                            <h2 class="h5 m-0 fw-semibold text-uppercase tracking-wider --bs-emphasis-color">Analisador
+                                de Suspeitas em Texto</h2>
+                        </div>
+                        <p class="text-muted small mb-4">Cole o texto de uma notícia ou mensagem suspeita abaixo para
+                            verificar a presença de padrões de manipulação textual e linguagem sensacionalista.</p>
+
+                        <form id="analyzerForm" onsubmit="analisarTexto(event)">
+                            <div class="mb-3">
+                                <textarea id="inputText" class="form-control" rows="5"
+                                    placeholder="Ex: URGENTE!! Repasse para todos antes que apaguem! Cientistas descobrem a verdade..."
+                                    required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"
+                                    onclick="limparTexto()">Limpar</button>
+                                <button type="submit" class="btn btn-primary px-4 fw-medium">Analisar Padrões</button>
+                            </div>
+                        </form>
+
+                        <div id="resultBox" class="result-box mt-4">
+                            <hr class="border-secondary opacity-25 my-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-semibold --bs-emphasis-color">Nível de Suspeita Encontrado:</span>
+                                <span id="riskBadge" class="badge bg-secondary">Aguardando...</span>
+                            </div>
+
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div id="progressBar" class="progress-bar bg-info" role="progressbar" style="width: 0%">
+                                </div>
+                            </div>
+
+                            <div class="p-3 bg-light rounded border border-secondary border-opacity-25 mt-3">
+                                <p class="small text-muted mb-2 fw-semibold">Padrões Detectados:</p>
+                                <ul id="detectedPatterns" class="list-unstyled small m-0 --bs-emphasis-color"></ul>
+                            </div>
+
+                            <div class="mt-3 p-3 rounded alert-theme small" id="adviceBox">
+                                <strong>Recomendação:</strong> Sempre cruze as informações com agências de checagem
+                                oficiais antes de compartilhar.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fakenews" class="py-5">
+        <div class="container py-3">
+            <div class="row g-5">
+
+                <div class="col-lg-6">
+                    <div class="pe-lg-3">
+                        <span class="text-accent fw-bold text-uppercase fs-7 tracking-wider">Mecanismos de
+                            Propagação</span>
+                        <h2 class="h3 fw-bold mt-1 mb-4 --bs-emphasis-color">Como Funcionam as Fake News</h2>
+
+                        <p class="text-secondary">
+                            A desinformação moderna raramente é criada ao acaso. Ela explora vieses cognitivos e
+                            gatilhos emocionais (como medo, indignação ou esperança) para fazer com que o leitor reaja e
+                            compartilhe antes de raciocinar criticamente.
+                        </p>
+
+                        <div class="mt-4">
+                            <div class="border-start border-3 border-accent ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Gatilhos Emocionais Intensos</h3>
+                                <p class="small text-secondary m-0">Textos que provocam raiva imediata têm taxa de
+                                    compartilhamento significativamente maior.</p>
+                            </div>
+
+                            <div class="border-start border-3 border-secondary ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Ausência de Fontes Verificáveis</h3>
+                                <p class="small text-secondary m-0">Frases genéricas como "segundo especialistas" ou
+                                    "médicos alertam" sem citar nomes ou instituições reais.</p>
+                            </div>
+
+                            <div class="border-start border-3 border-secondary ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Incentivo ao Compartilhamento
+                                    Apressado</h3>
+                                <p class="small text-secondary m-0">Apelos de urgência ("Apaguei rápido", "Antes que a
+                                    mídia tire do ar") visam burlar a análise crítica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="deepfake" class="col-lg-6">
+                    <div class="ps-lg-3 border-start-lg border-secondary border-opacity-25">
+                        <span class="text-accent fw-bold text-uppercase fs-7 tracking-wider">Inteligência Artificial
+                            Generativa</span>
+                        <h2 class="h3 fw-bold mt-1 mb-4 --bs-emphasis-color">Identificando Deepfakes</h2>
+
+                        <p class="text-secondary">
+                            Deepfakes são mídias sintetizadas por modelos de IA que substituem o rosto ou a voz de uma
+                            pessoa em vídeos e áudios com alta fidelidade. Embora refinados, ainda deixam pequenos
+                            rastros de manipulação.
+                        </p>
+
+                        <div class="mt-4">
+                            <div class="border-start border-3 border-accent ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Inconsistências em Rosto e Olhos
+                                </h3>
+                                <p class="small text-secondary m-0">Padrões de piscar irregulares, sombras estranhas na
+                                    área ocular ou reflexos desconexos nas pupilas.</p>
+                            </div>
+
+                            <div class="border-start border-3 border-secondary ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Sincronia Labial e Artefatos de
+                                    Áudio</h3>
+                                <p class="small text-secondary m-0">Ligeiro atraso entre o movimento da boca e o som,
+                                    além de pausas não naturais no ritmo da fala.</p>
+                            </div>
+
+                            <div class="border-start border-3 border-secondary ps-3 my-3">
+                                <h3 class="h6 fw-semibold mb-1 --bs-emphasis-color">Texturas e Bordas Glitchadas</h3>
+                                <p class="small text-secondary m-0">Suavização excessiva na pele, falhas na junção entre
+                                    o pescoço e a mandíbula, e fundos borrados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="verificacao" class="py-5 bg-hero border-top border-secondary border-opacity-25">
+        <div class="container py-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-4">
+                    <h2 class="h3 fw-bold mb-2 --bs-emphasis-color">Protocolo Rápido de Verificação</h2>
+                    <p class="text-secondary small">Etapas simples para validar dados antes de aceitar uma informação
+                        como verdadeira.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="p-4 border border-secondary border-opacity-25 rounded bg-white h-100 shadow-sm">
+                        <span class="fw-bold fs-5 text-accent d-block mb-1">01.</span>
+                        <h3 class="h6 fw-semibold mb-2 text-dark">Busca Reversa de Imagens</h3>
+                        <p class="small text-secondary m-0">Envie fotos ou frames de vídeos suspeitos para o Google Lens
+                            ou TinEye para descobrir a fonte e a data original da imagem.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4 border border-secondary border-opacity-25 rounded bg-white h-100 shadow-sm">
+                        <span class="fw-bold fs-5 text-accent d-block mb-1">02.</span>
+                        <h3 class="h6 fw-semibold mb-2 text-dark">Agências de Fact-Checking</h3>
+                        <p class="small text-secondary m-0">Consulte veículos especializados em checagem de fatos como
+                            Lupa, Aos Fatos e Fato ou Fake para conferir investigações prévias.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4 border border-secondary border-opacity-25 rounded bg-white h-100 shadow-sm">
+                        <span class="fw-bold fs-5 text-accent d-block mb-1">03.</span>
+                        <h3 class="h6 fw-semibold mb-2 text-dark">Validação em Fontes Primárias</h3>
+                        <p class="small text-secondary m-0">Procure o documento oficial, decreto, estudo acadêmico ou
+                            gravação original citada antes de reproduzir a alegação.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <span class="text-muted small me-3 --bs-emphasis-color">Agências Recomendadas:</span>
+                    <a href="https://lupa.uol.com.br" target="_blank" rel="noopener"
+                        class="text-decoration-none text-accent fw-medium small me-3">Agência Lupa ↗</a>
+                    <a href="https://www.aosfatos.org" target="_blank" rel="noopener"
+                        class="text-decoration-none text-accent fw-medium small me-3">Aos Fatos ↗</a>
+                    <a href="https://g1.globo.com/fato-ou-fake/" target="_blank" rel="noopener"
+                        class="text-decoration-none text-accent fw-medium small">Fato ou Fake ↗</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-4 border-top border-secondary border-opacity-25 text-center bg-white">
+        <div class="container">
+            <p class="small text-muted m-0">
+                &copy; Mistérios S/IA — Iniciativa Educativa sobre Desinformação e Inteligência Artificial.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

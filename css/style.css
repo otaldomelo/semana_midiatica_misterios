@@ -1,0 +1,189 @@
+/* Paleta Oficial Personalizada (Tema Castanho & Scooby / Alto Contraste) */
+:root {
+  /* As 5 Cores Principais */
+  --color-brown: #8A6F48;  /* Castanho */
+  --color-teal: #0F857F;   /* Turquesa */
+  --color-purple: #480052; /* Roxo Escuro */
+  --color-lime: #76AC2E;   /* Verde Lima */
+  --color-orange: #BA652E; /* Laranja */
+
+  /* Fundos em Camadas */
+  --bg-main: #8A6F48;      /* Fundo geral castanho */
+  --bg-card: #574226;      /* Fundo dos cartões/painel */
+  --bg-hero: #3d2d17;      /* Fundo do cabeçalho principal */
+  --bg-input: #2e2213;     /* Fundo escuro para caixas de texto e cartões */
+  
+  /* Textos de Alto Contraste */
+  --text-dark: #ffffff;    /* Texto principal em Branco Puro */
+  --text-muted: #fce8db;   /* Subtítulos em Creme Claro */
+  --border-light: #a3855c; /* Bordas e divisores visíveis */
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Força a leitura legível em todos os parágrafos */
+p, .text-secondary, .text-muted, span, li {
+  color: var(--text-muted) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #ffffff !important;
+}
+
+/* Navbar em Turquesa */
+.navbar {
+  background-color: #0F857F !important;
+  border-bottom: 3px solid #005252 !important;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #f7c455 !important; /* Destaque ao passar o rato */
+  font-weight: 700;
+}
+
+/* Destaques em Verde Lima */
+.text-accent {
+  color: var(--color-lime) !important;
+}
+
+.badge-accent {
+  background-color: rgba(118, 172, 46, 0.25);
+  color: #a3e635 !important;
+  border: 1px solid var(--color-lime);
+  font-weight: 600;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-lime);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(118, 172, 46, 0.8);
+}
+
+/* Topo (Hero Section) */
+.bg-hero {
+  background-color: var(--bg-hero);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Painel de Análise */
+.panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--color-teal);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Cartões do Protocolo de Verificação (Correção de Fundo e Texto) */
+.bg-white {
+  background-color: var(--bg-input) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.bg-white h3, .bg-white h6 {
+  color: #ffffff !important;
+}
+
+.bg-white p {
+  color: #fce8db !important;
+}
+
+/* Caixas de Texto / Formulário */
+.form-control {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-light);
+  color: #ffffff !important;
+}
+
+.form-control::placeholder {
+  color: #d6c4b2 !important;
+}
+
+.form-control:focus {
+  background-color: #241a0e;
+  border-color: var(--color-teal);
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.25rem rgba(15, 133, 127, 0.35);
+}
+
+/* Botões */
+.btn-primary {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #129e97;
+  border-color: #129e97;
+}
+
+.btn-outline-secondary {
+  color: #ffffff !important;
+  border-color: var(--color-orange);
+  background-color: rgba(186, 101, 46, 0.3);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--color-orange);
+  color: #ffffff !important;
+}
+
+/* Caixas de Alerta e Resultados */
+.alert-theme {
+  background-color: rgba(15, 133, 127, 0.3);
+  border: 1px solid var(--color-teal);
+  color: #e6fffa !important;
+}
+
+#resultBox .bg-light {
+  background-color: var(--bg-input) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+/* Links das Agências de Fact-Checking */
+a.text-accent-link, .text-accent-link {
+  color: #ffaa6e !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.text-accent-link:hover {
+  color: var(--color-lime) !important;
+  text-decoration: underline;
+}
+
+/* Rodapé em Roxo Escuro */
+footer, footer.bg-white {
+  background-color: var(--color-purple) !important;
+  border-top: 1px solid var(--border-light) !important;
+}
+
+footer p {
+  color: #ffffff !important;
+}
+
+/* Ajustes de Bordas Responsivas */
+@media (min-width: 992px) {
+  .border-start-lg {
+    border-left: 1px solid var(--border-light) !important;
+  }
+}
