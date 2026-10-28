@@ -1,4 +1,4 @@
-// Mistérios S/IA — funções demonstrativas para o protótipo.
+
 const analyzerForm = document.getElementById("analyzerForm");
 const inputText = document.getElementById("inputText");
 const resultBox = document.getElementById("resultBox");
@@ -61,8 +61,7 @@ document.getElementById("clearAnalyzer").addEventListener("click", () => {
   inputText.focus();
 });
 
-// Mural de relatos: os dados existem apenas na memória desta página.
-// Recarregar/fechar a página apaga os relatos adicionados durante a sessão.
+
 const reportsList = document.getElementById("reportsList");
 const reportForm = document.getElementById("reportForm");
 const reportName = document.getElementById("reportName");
